@@ -11,7 +11,7 @@ import test.data.OrderData;
 import java.time.Duration;
 
 public class ScooterPage {
-    private static final String SCOOTER_URL = "https://qa-scooter.praktikum-services.ru/";
+    private static final String SCOOTER_URL = "https://qa-scooter.education-services.ru/";
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -21,10 +21,10 @@ public class ScooterPage {
     private final By cookieButton = By.id("rcc-confirm-button");
     // Верхняя кнопка «Заказать» (первая точка входа в сценарий заказа)
     private final By orderUpButton = By.xpath(
-            "(//button[contains(@class, 'Button_Button__') and text()='Заказать'])[1]");
+            "//button[@class='Button_Button__ra12g' and text()='Заказать']");
     // Нижняя кнопка «Заказать» (вторая точка входа, в футере страницы)
     private final By orderDownButton = By.xpath(
-            "//div[contains(@class, 'Footer_footer')]//button[text()='Заказать']");
+            "//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");
     // Заголовок раздела «Вопросы о важном»
     private final By questionsTitle = By.xpath("//*[text()='Вопросы о важном']");
     // ---- Форма «Для кого самокат» ----
@@ -42,11 +42,11 @@ public class ScooterPage {
     private final By deliveryDateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     private final By rentalPeriodDropdownArrow = By.className("Dropdown-arrow");
     private final By periodDayOption = By.xpath("//div[text()='сутки']");
-    private final By periodMonthOption = By.xpath("//div[text()='месяц']");
+    private final By periodMonthOption = By.xpath("//div[text()='четверо суток']");
     private final By colorBlackPearlCheckbox = By.id("black");
     private final By colorGrayDesolationCheckbox = By.id("grey");
     private final By courierCommentField = By.xpath("//input[@placeholder='Комментарий для курьера']");
-    private final By placeOrderButton = By.xpath("//button[text()='Заказать']");
+    private final By placeOrderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");
     // --Всплывающие окна--
     private final By confirmOrderPromptText = By.xpath("//*[contains(text(),'Хотите оформить заказ?')]");
     private final By yesButton = By.xpath("//button[text()='Да']");
@@ -107,7 +107,7 @@ public class ScooterPage {
         driver.findElement(deliveryDateField).clear();
         driver.findElement(deliveryDateField).sendKeys(data.date);
         driver.findElement(rentalPeriodDropdownArrow).click();
-        if (data.period.equals("месяц")) {
+        if (data.period.equals("четверо суток")) {
             wait.until(ExpectedConditions.visibilityOfElementLocated(periodMonthOption)).click();
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(periodDayOption)).click();

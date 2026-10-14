@@ -27,7 +27,7 @@ public class ScooterOrderTest extends BaseTest {
                 "15.11.2026", "сутки", "черный", "Привезите после 18:00");
         OrderData maria = new OrderData(
                 "Мария", "Петрова", "Тверская, 3", "79997654321",
-                "20.11.2026", "месяц", "серый", "Оставьте у консьержа");
+                "20.11.2026", "четверо суток", "серый", "Оставьте у консьержа");
         return Stream.of(Arguments.of(ivan), Arguments.of(maria));
     }
     /*
