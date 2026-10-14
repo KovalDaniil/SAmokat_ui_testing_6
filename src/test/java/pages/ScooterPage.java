@@ -42,7 +42,7 @@ public class ScooterPage {
     private final By deliveryDateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     private final By rentalPeriodDropdownArrow = By.className("Dropdown-arrow");
     private final By periodDayOption = By.xpath("//div[text()='сутки']");
-    private final By periodMonthOption = By.xpath("//div[text()='четверо суток']");
+    private final By periodDay4Option = By.xpath("//div[text()='четверо суток']");
     private final By colorBlackPearlCheckbox = By.id("black");
     private final By colorGrayDesolationCheckbox = By.id("grey");
     private final By courierCommentField = By.xpath("//input[@placeholder='Комментарий для курьера']");
@@ -108,7 +108,7 @@ public class ScooterPage {
         driver.findElement(deliveryDateField).sendKeys(data.date);
         driver.findElement(rentalPeriodDropdownArrow).click();
         if (data.period.equals("четверо суток")) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(periodMonthOption)).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(periodDay4Option)).click();
         } else {
             wait.until(ExpectedConditions.visibilityOfElementLocated(periodDayOption)).click();
         }
